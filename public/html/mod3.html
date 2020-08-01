@@ -1,0 +1,392 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Character Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../css/a3n1.css" rel="stylesheet" type="text/css">
+<!--
+*													
+*              Developed and designed by
+*              Jirikis & Valek Webconsultancy
+*              www.JVweb.nl  
+*              info@JVweb.nl   
+*               
+*              Abdij van Averbodestraat 47 
+*              5037 CA Tilburg  
+*
+*			   The Netherlands
+*
+*              Phone: +(31)(0)13 469 05 95
+*              Fax:   +(31)(0)13 468 65 36 
+*													
+*              All rights reserved 	
+*              Copyright 2003 Jirikis & Valek Webconsultancy	
+*													
+*   		   -  Your business, your vision, your internetsite  -
+*													
+-->
+</head>
+
+<body>
+<table width="100%" border="0" class="table">
+  <tr>
+    <td>
+	<p> <a href="mod1.html" target="content"><font size="2">Item Prefix/Suffixes</font></a>
+	<font size="2"> 
+        | <a href="mod2.html" target="content">Unique Items</a> 
+		| <a href="mod3.html" target="content">Character Stats</a> 
+		| <a href="mod4.html" target="content">Base Items</a> 
+		| <a href="mod5.html" target="content">Spells and Skills</a> 
+		| <a href="mod6.html" target="content">Monsters</a> 
+		| <a href="mod7.html" target="content">Unique Monsters</a> 
+		| <a href="mod8.html" target="content">Shrines</a> 
+		| <a href="mod9.html" target="content">Quests</a> 
+		| <a href="mod10.html" target="content">Miscellanious</a></font></p>
+      <p><b>Character Data</b></p>
+
+      <p> <b>Diablo</b><br><br>
+The starting stats are located at offset <b> 9FE50 (9EDDF)</b> and are 4
+bytes long each. 
+</p>
+      <table width="100%" border="0" class="table">
+        <tr> 
+          <td width="18%">&nbsp;</td>
+          <td width="20%">Warrior</td>
+          <td width="21%">Rogue </td>
+          <td width="22%">Sorcerer</td>
+          <td width="19%">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td>Strength......</td>
+          <td>1E00 0000</td>
+          <td>1400 0000</td>
+          <td>0F00 0000</td>
+          <td>0000 0000</td>
+        </tr>
+        <tr> 
+          <td>Magic.........</td>
+          <td>0A00 0000</td>
+          <td>0F00 0000</td>
+          <td>2300 0000</td>
+          <td>0000 0000</td>
+        </tr>
+        <tr> 
+          <td>Dexterity.....</td>
+          <td>1400 0000</td>
+          <td>1E00 0000</td>
+          <td>0F00 0000</td>
+          <td>0000 0000</td>
+        </tr>
+        <tr> 
+          <td>Vitality......</td>
+          <td>1900 0000</td>
+          <td>1400 0000</td>
+          <td>1400 0000</td>
+          <td>0000 0000</td>
+        </tr>
+      </table>      
+      
+
+<p>
+The max stats are located at offset <b> 9FEB0 (9EE24)</b> and is 4 bytes
+long each as well.</p>
+<table width="100%" border="0" class="table">
+        <tr> 
+          <td width="16%">&nbsp;</td>
+          <td width="25%">Strength</td>
+          <td width="21%">Magic</td>
+          <td width="21%">Dexterity </td>
+          <td width="17%">Vitality</td>
+        </tr>
+        <tr> 
+          <td>Warrior......</td>
+          <td>FA00 0000</td>
+          <td>3200 0000</td>
+          <td>3C00 0000</td>
+          <td>6400 0000</td>
+        </tr>
+        <tr> 
+          <td>Rogue........</td>
+          <td>3700 0000</td>
+          <td>4600 0000</td>
+          <td>FA00 0000</td>
+          <td>5000 0000</td>
+        </tr>
+        <tr> 
+          <td>Sorcerer.....</td>
+          <td>2D00 0000</td>
+          <td> FA00 0000</td>
+          <td>5500 0000</td>
+          <td>5000 0000</td>
+        </tr>
+      </table>
+     
+<p>
+The blocking bonuses are at offset <b> 9FE90 (9EE0F)</b> and are 4 bytes
+long each. The values are in percentages. Referring to Diablo,
+the Warrior has a 30% blocking bonus.</p>
+      <table width="100%" border="0">
+        <tr> 
+          <td>Warrior</td>
+          <td>Rogue</td>
+          <td>Sorcerer</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr> 
+          <td>1E00 0000</td>
+          <td>1400 0000</td>
+          <td>0A00 0000</td>
+          <td>0000 0000</td>
+        </tr>
+      </table>      
+<p>
+The rest of the bonus and framesets are located at offset <b>
+9FDF0 (9ED88)</b> and are one byte each for each bonus. Each character has 11
+bonuses and framesets.</p>
+
+      <table border="0" class="table" width="">
+        <tr> 
+          <td><font color="#99CCFF"><b>Byte</b></font></td>
+          <td><font color="#99CCFF"><b>Effect</b> </font></td>
+        </tr>
+        <tr> 
+          <td>0</td>
+          <td>Idle frameset in the dungeon</td>
+        </tr>
+        <tr> 
+          <td>1</td>
+          <td>Attacking frameset</td>
+        </tr>
+        <tr> 
+          <td>2</td>
+          <td>Walking frameset in dungeon</td>
+        </tr>
+        <tr> 
+          <td>3</td>
+          <td>Blocking speed</td>
+        </tr>
+        <tr> 
+          <td>4</td>
+          <td>Death frameset</td>
+        </tr>
+        <tr> 
+          <td>5</td>
+          <td>Frameset for magic casting</td>
+        </tr>
+        <tr> 
+          <td>6</td>
+          <td>Hit recovery speed</td>
+        </tr>
+        <tr> 
+          <td>7</td>
+          <td>Idle frameset in town</td>
+        </tr>
+        <tr> 
+          <td>8</td>
+          <td>Walking frameset in town</td>
+        </tr>
+        <tr> 
+          <td>9</td>
+          <td>Single handed weapon attacking speed&nbsp;</td>
+        </tr>
+        <tr> 
+          <td>10</td>
+          <td>Spell casting speed</td>
+        </tr>
+      </table>
+
+<p>
+Note about the speeds.....<br>
+To get the actual &quot;time&quot; of the speeds, multiply the
+value by 0.05. The number you get is the speed in seconds. AND...if
+you set the framesets lower than the speed value, that action
+will not work. For example, you set byte 5, which is the frameset
+for magic casting, to 0A...and the spell casting speed to 09, the
+character will not perform the spell. Same goes for attacking.<br>
+<br>
+Changing the class' names is a bit difficult for a newbie who isn't
+too familiar with how a pointer works. So, I'll try to explain it
+the best I can. <br>
+First, the locations of the name pointers (this example is from Diablo 1.07)....</p>
+
+<pre><b>Warrior</b>........4B23
+<b>Rogue</b>..........4B2F
+<b>Sorcerer</b>......4B3B
+</pre>
+
+<p>
+For the warrior, we see a pointer value of <b>2451
+4800</b>. To find out where this points to, subtract 402200
+from it. Since hexadecimal is written from right to left in a
+program, we need to reverse the pointer. Just swap the first and
+last bytes around (drop the 00) and we get <b>485124</b>.
+Subtracting 402200 from that, we get <b>82F24</b>. Now,
+go to this offset and there is the name! We can NOT change these
+names here. So, we have to find an enused spot for the new names.
+We'll use offset <b>82960</b>. Go there are write in
+the new names you wish to use, null terminating the name (00 byte
+value) after each one. Now, for the new warrior name, get the
+offset of the first letter (which should be 82960) and add 402200
+to it to get the new pointer. You'll get <b>484B60</b>.
+Now, reverse this and you'll get <b>604B 4800</b>,
+which is the new pointer we'll put in at offset 4B23. So do that,
+save the exe, and start up your mod. The class name will still be
+the same here (changing it will require editing the diabloui.dll),
+but in game, the box where it says WARRIOR will now show your new
+name! <br>
+<br>
+Editing the name in the DLL is really easy, but tricky.
+After you load the &quot;diabloui.dll&quot; into the hex editor,
+go to offset 26E68. Here, you'll find the names, along with some
+additional data that I haven'y ever looked at. As you can see,
+you'll need to null terminate EACH LETTER. Plus, each name can
+only be so long, going over and under the given amount of letters
+will cause the selection screen to look odd. You can insert and
+delete stuff in this file without getting an invalid Win32
+application error. So if you change a class' name to something
+one letter longer, simply add 2 bytes to the file and it may help
+some. Other crap is changable here, like the text in the credits
+screen. <br>
+<br>
+        <b>Hellfire</b><br><br>
+The Hellfire data is exactly the same, with just the
+additional data for the 3 extra classes. Shouldn't be too hard to
+figure out. The name pointers are stored elsewhere and are not in
+the code like they are in Diablo. At offset <b>B47B8</b>
+are the 4 byte long name pointers. The first pointer is for the
+Warrior, then Rogue, Sorcerer, Monk, Bard, and Barbarian. To
+change the names, do like you would in Diablo with the pointers,
+but this time, use 401600 to subtract/add with. </p>
+
+<p>The starting stats are located at offset B4740 and are 4 bytes
+long each. </p>
+<table width="100%" border="0">
+  <tr>
+    <td>&nbsp;</td>
+          <td>Warrior</td>
+          <td>Rogue</td>
+          <td>Sorcerer</td>
+          <td>Monk</td>
+          <td> Bard</td>
+          <td>Barbarian</td>
+  </tr>
+  <tr>
+          <td>Strength</td>
+          <td>1E00 0000</td>
+          <td>1400 0000</td>
+          <td>0F00 0000</td>
+          <td>1900 0000</td>
+          <td>1400 0000</td>
+          <td>2800 0000</td>
+  </tr>
+  <tr>
+          <td>Magic</td>
+          <td>0A00 0000</td>
+          <td>0F00 0000</td>
+          <td> 2300 0000</td>
+          <td>0F00 0000</td>
+          <td>1400 0000</td>
+          <td>0000 0000</td>
+  </tr>
+  <tr>
+          <td>Dexterity</td>
+          <td>1400 0000</td>
+          <td>1E00 0000</td>
+          <td>0F00 0000</td>
+          <td>1900 0000</td>
+          <td>1900 0000</td>
+          <td>1400 0000</td>
+  </tr>
+  <tr>
+          <td>Vitality</td>
+          <td>1900 0000</td>
+          <td>1400 0000</td>
+          <td>1400 0000</td>
+          <td>1400 0000</td>
+          <td>1400 0000</td>
+          <td>1900 0000</td>
+  </tr>
+</table>
+<p>
+The max stats are located at offset B47D0 and is 4 bytes
+long each as well.</p>
+      <table width="75%" border="0">
+        <tr> 
+          <td width="17%" height="25">&nbsp;</td>
+          <td width="22%">Strength</td>
+          <td width="19%">Magic</td>
+          <td width="18%">Dexterity</td>
+          <td width="24%">Vitality</td>
+        </tr>
+        <tr> 
+          <td>Warrior......</td>
+          <td>FA00 0000</td>
+          <td> 3200 0000</td>
+          <td>3C00 0000</td>
+          <td>6400 0000</td>
+        </tr>
+        <tr> 
+          <td>Rogue........</td>
+          <td>3700 0000</td>
+          <td>4600 0000</td>
+          <td>FA00 0000</td>
+          <td>5000 0000</td>
+        </tr>
+        <tr> 
+          <td>Sorcerer.....</td>
+          <td>2D00 0000</td>
+          <td>FA00 0000</td>
+          <td>5500 0000</td>
+          <td>5000 0000</td>
+        </tr>
+        <tr> 
+          <td>Monk.........</td>
+          <td>9600 0000</td>
+          <td>5000 0000</td>
+          <td>9600 0000</td>
+          <td>5000 0000</td>
+        </tr>
+        <tr> 
+          <td>Bard.........</td>
+          <td>7800 0000</td>
+          <td>7800 0000</td>
+          <td>7800 0000</td>
+          <td>5000 0000</td>
+        </tr>
+        <tr> 
+          <td>Barbarian....</td>
+          <td>FF00 0000</td>
+          <td>0000 0000</td>
+          <td>3700 0000</td>
+          <td>9600 0000</td>
+        </tr>
+      </table>
+      <p>The blocking bonuses are at offset B47A0 and are 4 bytes long
+each. </p>
+<table width="100%" border="0">
+  <tr>
+          <td>Warrior</td>
+          <td>Rogue</td>
+          <td>Sorcerer</td>
+          <td>Monk</td>
+          <td>Bard</td>
+          <td>Barbarian</td>
+  </tr>
+  <tr>
+          <td>1E00 0000</td>      <td>1400 0000</td>      <td>0A00 0000 </td>      <td>1900 0000</td>      <td>1900 0000</td>      <td>1E00 0000</td>
+  </tr>
+</table>
+
+<p>The name locations in the &quot;hellfrui.dll&quot;
+are at offset <b>2656C</b>.</p>
+</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font size="2">Click <a href="../index.html">here</a> to go back.</font></td>
+  </tr>
+</table>
+</body>
+</html>

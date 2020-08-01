@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>The Dark: Code changes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../css/a3n1.css" rel="stylesheet" type="text/css">
+<!--
+*													
+*              Developed and designed by
+*              Jirikis & Valek Webconsultancy
+*              www.JVweb.nl  
+*              info@JVweb.nl   
+*               
+*              Abdij van Averbodestraat 47 
+*              5037 CA Tilburg  
+*
+*			   The Netherlands
+*
+*              Phone: +(31)(0)13 469 05 95
+*              Fax:   +(31)(0)13 468 65 36 
+*													
+*              All rights reserved 	
+*              Copyright 2003 Jirikis & Valek Webconsultancy	
+*													
+*   		   -  Your business, your vision, your internetsite  -
+*													
+-->
+</head>
+
+<body>
+<table width="100%" border="0" class="table">
+  <tr>
+    <td>
+<p><b>The Dark: Code changes</b></p>
+
+<p>The following are some of the modifications made to Hellfire
+to produce The Dark. All information here should be applied with
+the greatest caution, and regarded as examples as how to do
+things, not as working fixes. More will be added in the future. </p>
+
+<p>
+<b>Warp your way thru the levels</b><br>
+<br>
+This change to the Warp spell will let you teleport to the stairs
+furthest away instead of the one closest by.
+</p>
+<table width="60%" border="0" class="table">
+  <tr>
+          <td>change</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+          <td>:004316E6 C745F4FFFFFF7F</td>
+          <td>mov [ebp-0C], 7FFFFFFF</td>
+  </tr>
+  <tr>
+          <td>to</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+          <td>:004316E6 C745F400000000</td>
+          <td>mov [ebp-0C], 00000000</td>
+  </tr>
+  <tr>
+          <td>and change</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+          <td>:0043179F 7D09</td>
+          <td>jge 004317AA</td>
+  </tr>
+  <tr>
+          <td>to</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+          <td>:0043179F 7E09</td>
+          <td>jle 004317AA</td>
+  </tr>
+</table>
+
+<p>
+<b>Barbarian with higher endurance</b><br>
+<br>
+Barbarian gets stunned when damage &gt; clvl*3/2, not clvl*5/4.
+<table width="50%" border="0" class="table">
+  <tr>
+          <td>change</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+          <td>:00459F1D 6A04</td>
+          <td>push 00000004</td>
+  </tr>
+  <tr>
+          <td>to</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+          <td>:00459F1D 6A02</td>
+          <td>push 00000002</td>
+  </tr>
+</table>
+
+</p>
+
+<p>
+<b>Bard with increased Mana</b><br>
+<br>
+Bard gets more mana from his items: 3 + 1.5*Magcharacter + 1.75*Magitems
++ 2*clvl -&gt; ... + 2.5*Magitems + ... 
+
+<table width="50%" border="0" class="table">
+  <tr>
+          <td>:00424155 C1FF02 sar edi, 02</td>
+  </tr>
+  <tr>
+          <td>change to</td>
+  </tr>
+  <tr>
+          <td>:00424155 909090 3*nop</td>
+  </tr>
+</table>
+
+ </p>
+      </td>
+  </tr>
+    <tr>
+    <td><font size="2">Click <a href="../index.html">here</a> to go back.</font></td>
+  </tr>
+</table>
+</body>
+</html>

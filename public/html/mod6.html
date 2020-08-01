@@ -1,0 +1,405 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Monster Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../css/a3n1.css" rel="stylesheet" type="text/css">
+<!--
+*													
+*              Developed and designed by
+*              Jirikis & Valek Webconsultancy
+*              www.JVweb.nl  
+*              info@JVweb.nl   
+*               
+*              Abdij van Averbodestraat 47 
+*              5037 CA Tilburg  
+*
+*			   The Netherlands
+*
+*              Phone: +(31)(0)13 469 05 95
+*              Fax:   +(31)(0)13 468 65 36 
+*													
+*              All rights reserved 	
+*              Copyright 2003 Jirikis & Valek Webconsultancy	
+*													
+*   		   -  Your business, your vision, your internetsite  -
+*													
+-->
+</head>
+
+<body>
+<table width="100%" border="0" class="table">
+  <tr>
+    <td>
+	<p> <a href="mod1.html" target="content"><font size="2">Item Prefix/Suffixes</font></a>
+	<font size="2"> 
+        | <a href="mod2.html" target="content">Unique Items</a> 
+		| <a href="mod3.html" target="content">Character Stats</a> 
+		| <a href="mod4.html" target="content">Base Items</a> 
+		| <a href="mod5.html" target="content">Spells and Skills</a> 
+		| <a href="mod6.html" target="content">Monsters</a> 
+		| <a href="mod7.html" target="content">Unique Monsters</a> 
+		| <a href="mod8.html" target="content">Shrines</a> 
+		| <a href="mod9.html" target="content">Quests</a> 
+		| <a href="mod10.html" target="content">Miscellanious</a></font></p>
+      <p><b>Monster Data</b></p>
+
+<p>
+Monster data begins at offset <b>96C70 (95C08)</b> in Diablo.
+In Hellfire, it's <b>AA8F0</b>.
+<br>
+<br>
+Each monster is 128 bytes in length each, which is 8 full lines
+in a hex editor. Place your cursor at the beginning of a monster
+and drag it along until you see this at the very bottom &quot;Sel
+0x80&quot;. This is one monster.</p>
+
+      <table border="0" width="100%" class="table">
+        <tr> 
+          <td><font color="#99CCFF"><b>Bytes</b></font></td>
+          <td width="86%"><font color="#99CCFF"><b>Effect</b></font></td>
+        </tr>
+        <tr> 
+          <td valign="top">0-3</td>
+          <td><b>Animation size</b><br>
+            This tells the game how to handle the animation file (CL2) size. Certain 
+            animations will not look right if given the wrong value, so use the 
+            value given for the animation you want to use.<br>
+            60 = Small animations (bats)<br>
+            80 = Average animations (most monsters)<br>
+            A0 = Large animations (vipers, knights, balrogs)</td>
+        </tr>
+        <tr> 
+          <td valign="top">4-7</td>
+          <td><b>Seeding size<br>
+            </b>This is the monster's &quot;size&quot; value. Each level 
+            can hold only so many&nbsp;points. This is why only certain monsters 
+            appear in a level.</td>
+        </tr>
+        <tr> 
+          <td>8-11</td>
+          <td><b>Pointer to animation file (CL2)</b></td>
+        </tr>
+        <tr> 
+          <td valign="top">12-15</td>
+          <td><b>Trigger flag for second attack</b><br>
+            Some monsters have a second attack. If they do, a '01&quot; will be 
+            listed&nbsp;here. Giving a monster an attack type that uses a second 
+            attack when the animation does not, guess what can happen.</td>
+        </tr>
+        <tr> 
+          <td>16-19</td>
+          <td><b>Pointer to sounds</b></td>
+        </tr>
+        <tr> 
+          <td valign="top">20-23</td>
+          <td><b>Trigger flag for special sounds</b><br>
+            If the animation supports a second animation, a&nbsp;'01' will be 
+            here. Again, giving a monster an attack type that uses a second animation 
+            that doesn't&nbsp;have one will cause the game to crash.</td>
+        </tr>
+        <tr> 
+          <td valign="top">24-27</td>
+          <td><b>Trigger flag for color translation file</b><br>
+            Defaulted, each monster class consists of 4 monsters using the exact&nbsp;same 
+            CL2 file. Three of those will have different colors while one will 
+            use the color that comes with the CL2 file. A '01' value here means 
+            the&nbsp;monster uses a .TRN file to change it's color.</td>
+        </tr>
+        <tr> 
+          <td>28-31</td>
+          <td><b>Pointer to color translation file (.TRN)</b></td>
+        </tr>
+        <tr> 
+          <td valign="top">32-35</td>
+          <td><b>Idle frameset</b><br>
+            As well as for all the other framesets, do not exceed the values listed 
+            or&nbsp;the game will crash (sometimes it is ok). Decreasing the value 
+            will&nbsp;speed the animation up by removing a frame or two (whatever 
+            you specify. The game will play choppy though). Lowering the Hit Recovery 
+            frameset too low can also crash the game, so be careful.</td>
+        </tr>
+        <tr> 
+          <td>36-39</td>
+          <td><b>Walk frameset</b></td>
+        </tr>
+        <tr> 
+          <td>40-43</td>
+          <td><b>Attack swing frameset</b></td>
+        </tr>
+        <tr> 
+          <td>44-47</td>
+          <td><b>Hit recovery frameset</b></td>
+        </tr>
+        <tr> 
+          <td>48-51</td>
+          <td><b>Death frameset</b></td>
+        </tr>
+        <tr> 
+          <td>52-55</td>
+          <td><b>Second attack frameset</b></td>
+        </tr>
+        <tr> 
+          <td valign="top">56-59</td>
+          <td><b>Idle playback speed</b><br>
+            This tells the game how fast or slow to play the animations for the 
+            framesets. 0 is the fastest playback.</td>
+        </tr>
+        <tr> 
+          <td>60-63</td>
+          <td><b>Walk playback speed</b></td>
+        </tr>
+        <tr> 
+          <td>64-67</td>
+          <td><b>Attack playback speed</b></td>
+        </tr>
+        <tr> 
+          <td>68-71</td>
+          <td><b>Hit recovery speed</b></td>
+        </tr>
+        <tr> 
+          <td>72-75</td>
+          <td><b>Death playback speed</b><br>
+            I love this one...increasing the value will slow the playback (same 
+            for all of them, BTW). Try a '01' or '02' on a Hidden monster type..hehe.</td>
+        </tr>
+        <tr> 
+          <td>76-79</td>
+          <td><b>Second attack swing playback speed</b></td>
+        </tr>
+        <tr> 
+          <td>80-83</td>
+          <td><b>Pointer to monster's name</b></td>
+        </tr>
+        <tr> 
+          <td valign="top">84-85</td>
+          <td><b>Min/max dungeon level's the monster will appear on.</b><br>
+            The game will sometimes use values in between..don't know why.<br>
+            L1 = 00<br>
+            L2 = 02<br>
+            L3 = 04<br>
+            L4 = 06<br>
+            L5 = 08<br>
+            L6 = 0A<br>
+            L7 = 0C<br>
+            L8 = 0E<br>
+            L9 = 10<br>
+            10 = 12<br>
+            11 = 14<br>
+            12 = 16<br>
+            13 = 18<br>
+            14 = 1A<br>
+            15 = 1C<br>
+            16 = 1E (Monsters for L16 are chosen in the games' code and can not 
+            be changed here)<br>
+            Hive 1 = 20<br>
+            Hive 2 = 22<br>
+            Hive 3 = 24<br>
+            Hive 4 = 26<br>
+            Crypt 1 = 28<br>
+            Crypt 2 = 2A<br>
+            Crypt 3 = 2C<br>
+            Crypt 4 = 2E</td>
+        </tr>
+        <tr> 
+          <td valign="top">86-87</td>
+          <td><b>Monster's level</b><br>
+            The monster's level will determine what kind of items it will be able 
+            to drop. Nightmare and Hell difficulty monsters get the base item 
+            level bonus, but the prefix, suffix, and unique item levels will not 
+            change.</td>
+        </tr>
+        <tr> 
+          <td>88-91</td>
+          <td><b>Minimum HP</b></td>
+        </tr>
+        <tr> 
+          <td>92-95</td>
+          <td><b>Maximum HP</b></td>
+        </tr>
+        <tr> 
+          <td valign="top">96-103</td>
+          <td><b>Attack Type</b><br>
+            Here's the fun part! You can give any attack type to any monster class 
+            you wish (with some exceptions). Some will not work right, not at 
+            all, or look plain silly.<br>
+            First value....<br>
+            00 melee, stupid monster (zombies)<br>
+            01 melee, random second attack swing (overlords)<br>
+            02 common melee attack type<br>
+            03 archer, rarely retreats (skeletons)<br>
+            04 melee, retreat to eat (scavenger) when hurt<br> <b>Works for 
+            the Scavenger slots only...other slots will show them retreating to 
+            eat, but will not get the regeneration bonus.</b><br>
+            05 charge attack<br>
+            06 melee, random second attack when hit (goats)<br>
+            07 archer, retreats often (goats)<br>
+            08 melee, random second animation movement, flee when nearby enemy 
+            is killed (Fallen Ones)<br>
+            09 magma demon attack type<br> <b>Chunks lava balls. Works on 
+            monsters with second animations..even they look look funny sometimes.</b><br>
+            0A Skeleton King attack type (summons skeletons in SP)<br>
+            0B bat attack type (default special is the hit and run attack)<br>
+            the specials the bats have are given to them by the games' code (Blink 
+            teleport, Gloom's charge, and the Familiar's charged bolt)<br>
+            0C gargoyle attack type, second attck (stoning to regain HP)<br> <b>Again, 
+            probably slot specific for the regeneration bonus</b><br>
+            0D The Butcher attack type (woohoo!)<br>
+            0E witches' attack type (blood stars, retreat a lot)<br>
+            0F Hidden attack type, second attack<br>
+            10 Thunder demon attack type<br> <b>Same as 09</b><br>
+            11 Incinerator attack type<br> <b>Same as 9</b><br>
+            12 Gharbad the Weak, second attack<br>
+            13 spitter attack type<br> <b>Same as 9</b><br>
+            14 Deathspit (always spitting)<br> <b>Same as above, but always 
+            spits</b><br>
+            15 Golem<br> <b>Never tried to use this one...might crash the 
+            game or do weird things...</b><br>
+            16 Zhar the Mad, second attack type<br>
+            17 Snotspill, second attack type<br>
+            18 Viper's charge attack<br>
+            19 counselor's magic attack type, second attack<br> <b>The subtype 
+            value determine's the actual magic attack</b><br>
+            1A balrog's inferno attack type<br> <b>Same as 9</b><br>
+            1B Diablo<br> <b>Same as 9</b><br>
+            1C Lazarus, second attack<br>
+            1D Red Vex and Black Jade<br>
+            1E Lachdanan<br>
+            1F Warlord of Blood<br> <b>Hellfire<br>
+            </b>20 Firebat<b><br>
+            </b>21 Torchant, Hellbat<b><br>
+            </b>22 Hork Demon (spawning attack)<b><br>
+            Buggy with 2 or more players, spawns on H2 and H3 monster 75 <br>
+            (= Hork spawn) on H4 monster 7C (= Hell Bug, Defiler)<br>
+            </b>23 Lich<b><br>
+            </b>24 Arch Lich<b><br>
+            </b>25 Psychorb<b><br>
+            </b>26 Necromorb<b><br>
+            </b>27 Bone Demon<b><br>
+            <br>
+            Byte 101 is the intelligence factor</b>..the actual brains for 
+            the monster.<b> </b>&nbsp;I can not describe the effect 
+            ranges, but 03 will allow the monsters to open doors, among other 
+            things. &nbsp; Beware.. :P</td>
+        </tr>
+        <tr> 
+          <td valign="top">104</td>
+          <td><b>Subtype</b><br>
+            The range is between 0-3,&nbsp;with 3 being the highest. For instance, 
+            a goat archer with a value of 00&nbsp;will stand still and let you 
+            get a hit or two in before retreating. A 03 will&nbsp;usually require 
+            you to corner it. Same for the witches. For the counselor&nbsp;type, 
+            it determines what spell it will use. 00 being firebolt, 01 being 
+            charged bolt, 02 being lightning, and 03 being fireball.</td>
+        </tr>
+        <tr> 
+          <td>105</td>
+          <td><b>To Hit percentage of the main attack</b></td>
+        </tr>
+        <tr> 
+          <td valign="top">106</td>
+          <td><b>To Hit frame</b><br>
+            Do not exceed the total to hit frameset, and whatever you do, do NOT&nbsp;use 
+            a value with a knight still holding the sword over his head..hehehe.</td>
+        </tr>
+        <tr> 
+          <td>107-108</td>
+          <td><b>Min/max damage per attack</b></td>
+        </tr>
+        <tr> 
+          <td>109</td>
+          <td><b>To hit percentage for the second attack</b></td>
+        </tr>
+        <tr> 
+          <td valign="top">110</td>
+          <td><b>Second attack's to hit frame</b><br>
+            Again, do not exceed the total to hit frameset for the second attack.</td>
+        </tr>
+        <tr> 
+          <td>111-112</td>
+          <td><b>Min/Max damage for the second attack</b></td>
+        </tr>
+        <tr> 
+          <td>113</td>
+          <td><b>Monster's Armor Class</b></td>
+        </tr>
+        <tr> 
+          <td valign="top">114-115</td>
+          <td><b>Monster type</b><br>
+            00 = Undead<br>
+            01 = Demon<br>
+            02 = Animal</td>
+        </tr>
+        <tr> 
+          <td valign="top">116-117</td>
+          <td><b>Resistance/Immunities in Normal/Nightmare difficulty</b><br>
+            This is bit encoded. V&amp;K did not furnish the formula for determining 
+            a monster's resistances by looking at the value, but I will =)&nbsp;&nbsp;This 
+            is in decimal form..which *I* find easier to use....<br> <b>Magic 
+            Resist = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Magic Immune 
+            = 8<br>
+            Fire Resist = 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            Fire Immune = 16<br>
+            Lightning Resist = 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lightning Immune 
+            = 32</b><br>
+            Take the numbers you want to use and add them up, then convert it 
+            to hexadecimal. This is the value you will use in the data. &nbsp;Example....<br>
+            Magic Immune, fire and lightning resistant....<br>
+            8 (magic immune) + 2 (fire resist) + 4 (lightning resist) = 14<br>
+            14 in hex is 0E. So '0E' is the value you will use.<br> <b>Note, 
+            some monsters have +40 or +80 hex added to the value. '0E' and '4E' 
+            are the same</b>.</td>
+        </tr>
+        <tr> 
+          <td>118-119</td>
+          <td><b>Resistance/Immunities in Hell difficulty</b></td>
+        </tr>
+        <tr> 
+          <td valign="top"> 120-121</td>
+          <td><b>Item drop specials.</b><br>
+            0040 = No item drops possible...just gold<br>
+            **80 = Unique item drops in SP only. The first byte determines the 
+            unique that gets dropped. In MP, this drops random magic items or 
+            books. Any other vlues here are unknown.<br>
+            **A0 = Same as above...don't know the difference</td>
+        </tr>
+        <tr> 
+          <td valign="top">122-123</td>
+          <td><b>Monster selection outline</b><br>
+            Determines when the monster is highlighted when you move the mouse 
+            over it. Values are related to the monster's size, but larger than 
+            average values mean the monster is a bit tougher to target. (ie, gargoyles)</td>
+        </tr>
+        <tr> 
+          <td>124-127</td>
+          <td><b>Experience points</b></td>
+        </tr>
+      </table>
+
+<p>
+Activation Table<br>
+A lot of monster slots were turned of for various reasons. To
+turn them back on, go to <b>9A4F0 (99488)</b>. Here, you'll see
+a bunch of 00's, 01's, and 02's. 00 means that slot is turned off,
+while 01 and 02 means the slot is on. The difference between 01
+and 02 are unknown. To find out what the slot number is, just
+start from the first byte and count it as 0, and go up till you
+get to the slot you want.<br>
+<br>
+Hellfire is a bit different.<br>
+<br>
+Go to offset <b>AF058</b> for the table. Here, each
+slot is 4 bytes in length each, instead of just one in Diablo.
+The same thing goes here as it did in Diablo, just count up each
+one in 4 byte blocks.</p>
+</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font size="2">Click <a href="../index.html">here</a> to go back.</font></td>
+  </tr>
+</table>
+</body>
+</html>
