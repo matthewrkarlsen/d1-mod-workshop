@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Prefix and Suffix Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../css/a3n1.css" rel="stylesheet" type="text/css">
+<!--
+*													
+*              Developed and designed by
+*              Jirikis & Valek Webconsultancy
+*              www.JVweb.nl  
+*              info@JVweb.nl   
+*               
+*              Abdij van Averbodestraat 47 
+*              5037 CA Tilburg  
+*
+*			   The Netherlands
+*
+*              Phone: +(31)(0)13 469 05 95
+*              Fax:   +(31)(0)13 468 65 36 
+*													
+*              All rights reserved 	
+*              Copyright 2003 Jirikis & Valek Webconsultancy	
+*													
+*   		   -  Your business, your vision, your internetsite  -
+*													
+-->
+</head>
+
+<body>
+<table width="100%" border="0" class="table">
+  <tr>
+    <td>
+	<p> <a href="mod1.html" target="content"><font size="2">Item Prefix/Suffixes</font></a>
+	<font size="2"> 
+        | <a href="mod2.html" target="content">Unique Items</a> 
+		| <a href="mod3.html" target="content">Character Stats</a> 
+		| <a href="mod4.html" target="content">Base Items</a> 
+		| <a href="mod5.html" target="content">Spells and Skills</a> 
+		| <a href="mod6.html" target="content">Monsters</a> 
+		| <a href="mod7.html" target="content">Unique Monsters</a> 
+		| <a href="mod8.html" target="content">Shrines</a> 
+		| <a href="mod9.html" target="content">Quests</a> 
+		| <a href="mod10.html" target="content">Miscellanious</a></font></p>
+      <p><b>Prefix and Suffix Data</b></p>
+      
+		
+<p>Beginning Offset in Diablo is <b> 7AAF8 (79AA8)</b>. In Hellfire, it's <b>8A820</b>.<br>
+<br>
+Each prefix/suffix is 48 bytes in length, which is 3 lines in the
+hex editor. Place your cursor on the starting point of a prefix/suffix
+and drag it along until you see this at the very bottom... &quot;Sel
+0x30&quot;. Everything you have highlighted is the data for one
+prefix/suffix.<br>
+<br>
+**Note** The first byte in each string will be referenced as Byte
+0, not Byte 1.
+
+</p>
+
+      <table border="0" width="100%" class="table">
+        <tr> 
+          <td><font color="#99CCFF"><b>Bytes</b></font></td>
+          <td><font color="#99CCFF"><b>Effect</b></font></td>
+        </tr>
+        <tr> 
+          <td valign="top">0-3</td>
+          <td><b>Name Pointer</b><br>
+            The pointers are written in reverse byte order, which means they are 
+            read from right to left. For example, Tin's pointer is '400649' (Diablo). 
+            In reverse order, this is '490640'. To find out where the pointer 
+            points to, you must subtract a hex value to get the offset to go to. 
+            In Diablo, this is '402200'. In Hellfire, it's '401600'. Subtracting 
+            '402200' from '490640' will give you '8E440'. That's the location 
+            of the name 'Tin'. Simple, eh? =)</td>
+        </tr>
+        <tr> 
+          <td valign="top">4-7</td>
+          <td><b>Effects</b><br>
+            00 : +% ToHit<br>
+            01 : -% ToHit<br>
+            02 : +% damage done<br>
+            03 : -% damage done<br>
+            04 : +% ToHit, +% damage done<br>
+            05 : -% ToHit, -% damage done<br>
+            06 : +% armor class<br>
+            07 : -% armor class<br>
+            08 : +% resist fire<br>
+            09 : +% resist lightning<br>
+            0A : +% resist magic<br>
+            0B : +% resist all<br>
+            0E : +/- spell levels<br>
+            0F : + charges<br>
+            10 : + fire damage<br>
+            11 : + lightning damage<br>
+            13 : + strength<br>
+            14 : - strength<br>
+            15 : + magic<br>
+            16 : - magic<br>
+            17 : + dexterity<br>
+            18 : - dexterity<br>
+            19 : + vitality<br>
+            1A : - vitality<br>
+            1B : + all attributes<br>
+            1C : + all attributes<br>
+            1D : + damage taken<br>
+            1E : - damage taken<br>
+            1F : + life<br>
+            20 : - life<br>
+            21 : + mana<br>
+            22 : - mana<br>
+            23 +% durability (high durability)<br>
+            24 -% durability (decreased durability)<br>
+            25 indestructable<br>
+            26 +% light<br>
+            27 -% light<br>
+            28 unknown or n/a<br>
+            29 multiple arrows<br>
+            2A + fire arrows damage<br>
+            2B + lightning arrows damage<br>
+            2C unique picture<br>
+            2D attacker take 1-3 damage<br>
+            2E -all mana<br>
+            2F player can't heal<br>
+            30 unknown or n/a<br>
+            31 unknown or n/a<br>
+            32 unknown or n/a<br>
+            33 unknown or n/a<br>
+            34 absorb half trap damage<br>
+            35 knocks target back<br>
+            36 monster can't heal<br>
+            37 % steal mana<br>
+            38 % steal life<br>
+            39 damage/penetrate armor<br>
+            3A attack speed (1=readiness, 4=haste)<br>
+            3B hit recovery (1=balance, 3=harmony<br>
+            3C fast block<br>
+            3D + damage done<br>
+            3E random speed arrows<br>
+            3F x-y damage done (unusual item damage)<br>
+            40 altered durability<br>
+            41 no strength requirements<br>
+            42 spell-<br>
+            43 attack speed (1=readiness, 4=haste)<br>
+            44 one handed<br>
+            45 +200% damage versus demons<br>
+            46 all resistances equal 0%<br>
+            47 unknown or n/a<br>
+            48 constantly lose life<br>
+            49 0-12.5% steal life<br>
+            4A infravision<br>
+            4B specified armor class<br>
+            4C armor class added to life<br>
+            4D 10% of mana added to armor class<br>
+            4E +30-clvl% resist fire<br>
+            4F - armor class<br> <b>Hellfire Only Effects</b><br>
+            50 -% resist fire<br>
+            51 -% resist lightning<br>
+            52 -% resist magic<br>
+            53 -random% resist all<br>
+            54 5% chance of doing *3 damage<br>
+            55 +% damage done (decreases 5% each hit)<br>
+            56 *2 damage to monster *1 damage to user<br>
+            57 *0-6 damage, average is *2<br>
+            58 +% damage, -% durability<br>
+            59 +% ToHit, +% damage done, 5% duplicate<br>
+            5A +40 armor class versus demons<br>
+            5B +20 armor class versus undead<br>
+            5C move mana to life<br>
+            5D move life to mana</td>
+        </tr>
+        <tr> 
+          <td>8-11</td>
+          <td><b>Minimum effect value</b></td>
+        </tr>
+        <tr> 
+          <td>12-15</td>
+          <td><b>Maximum effect value</b></td>
+        </tr>
+        <tr> 
+          <td>16-19</td>
+          <td><b>Quality level</b></td>
+        </tr>
+        <tr> 
+          <td valign="top">20-22</td>
+          <td><b>Occurance probability (bit encoded)</b><br>
+            Byte 20= Bows and jewelry<br>
+            Byte 21= Weapons and staves<br>
+            Byte 22= Armor and shields<br>
+            For the prefix/suffix to appear on a specific item type, a value of 
+            &quot;1&quot; &nbsp;must be given at&nbsp;the specific location. For 
+            instance, you want a&nbsp;&nbsp;prefix/suffix to appear on weapons 
+            only.&nbsp;You would give byte 21 a value&nbsp;&nbsp;of &quot;10&quot;, 
+            which gives the&nbsp;prefix/suffix to weapons, but not&nbsp;staves. 
+            A value &nbsp;of &quot;11&quot; at byte 21 will give the&nbsp;prefix/suffix 
+            to both weapons and staves.&nbsp;Same goes for the other 2 bytes. 
+            A full row of ones (111111) will&nbsp;&nbsp;make that prefix/suffix&nbsp;available 
+            to all item types.</td>
+        </tr>
+        <tr> 
+          <td>23</td>
+          <td><b>Always zero</b></td>
+        </tr>
+        <tr> 
+          <td valign="top">24-31</td>
+          <td><b>Excluded combinations indicator</b><br>
+          Can have a value of &quot;00000000&quot;, &quot;00000001&quot; or &quot;00000010&quot;.<br>
+          Values &quot;00000001&quot; and &quot;00000010&quot; cannot form a combination                                          </td>
+        </tr>
+        <tr> 
+          <td valign="top">32-35</td>
+          <td><b>Cursed Flag</b><br>
+            A value of &quot;00000000&quot; signifies the prefix/suffix as cursed. 
+            &quot;01000000&quot; signifies it as not.&nbsp;If the item is cursed, 
+            it will not be sold at the shops (my best guess)</td>
+        </tr>
+        <tr> 
+          <td>36-39</td>
+          <td><b>Minimum gold value</b></td>
+        </tr>
+        <tr> 
+          <td>40-43</td>
+          <td><b>Maximum gold value</b></td>
+        </tr>
+        <tr> 
+          <td valign="top">44-47</td>
+          <td><b>Multiplier</b><br>
+            Deals with how the game calculates the prefix/suffix's item value.</td>
+        </tr>
+      </table>
+</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font size="2">Click <a href="../index.html">here</a> to go back.</font></td>
+  </tr>
+</table>
+</body>
+</html>

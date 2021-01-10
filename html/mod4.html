@@ -1,0 +1,580 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Base Item Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../css/a3n1.css" rel="stylesheet" type="text/css">
+<!--
+*													
+*              Developed and designed by
+*              Jirikis & Valek Webconsultancy
+*              www.JVweb.nl  
+*              info@JVweb.nl   
+*               
+*              Abdij van Averbodestraat 47 
+*              5037 CA Tilburg  
+*
+*			   The Netherlands
+*
+*              Phone: +(31)(0)13 469 05 95
+*              Fax:   +(31)(0)13 468 65 36 
+*													
+*              All rights reserved 	
+*              Copyright 2003 Jirikis & Valek Webconsultancy	
+*													
+*   		   -  Your business, your vision, your internetsite  -
+*													
+-->
+</head>
+
+<body>
+<table width="100%" border="0" class="table">
+  <tr>
+    <td>
+	<p> <a href="mod1.html" target="content"><font size="2">Item Prefix/Suffixes</font></a>
+	<font size="2"> 
+        | <a href="mod2.html" target="content">Unique Items</a> 
+		| <a href="mod3.html" target="content">Character Stats</a> 
+		| <a href="mod4.html" target="content">Base Items</a> 
+		| <a href="mod5.html" target="content">Spells and Skills</a> 
+		| <a href="mod6.html" target="content">Monsters</a> 
+		| <a href="mod7.html" target="content">Unique Monsters</a> 
+		| <a href="mod8.html" target="content">Shrines</a> 
+		| <a href="mod9.html" target="content">Quests</a> 
+		| <a href="mod10.html" target="content">Miscellanious</a></font></p>
+      <p><b>Base Item Data</b>
+<p>
+
+<p>
+Base item data begins at offset <b>8E448 (8D408)</b> in Diablo.
+In Hellfire, it's <b>A05C8</b>.<br>
+<br>
+Each item is 76 bytes in length. Place your cursor at the
+beginning of an item string and drag it along until you see this
+at the very bottom &quot;Sel 0x4c&quot;. This is one item. 
+</p>
+
+      <table border="0"  class="table">
+        <tr> 
+          <td><font color="#99CCFF"><b>Bytes</b></font></td>
+          <td><font color="#99CCFF"><b>Effect</b></font></td>
+        </tr>
+        <tr> 
+          <td valign="top">0-3</td>
+          <td><b>Activation trigger</b><br>
+            00 = Item will never be found<br>
+            01 = Item will be findable<br>
+            02 = Findable, 2X occurance rate</td>
+        </tr>
+        <tr> 
+          <td valign="top">4</td>
+          <td><b>Item type<br>
+            </b>01 = Weapons<br>
+            02 = All armors<br>
+            03 = Jewelry, potion, scrolls<br>
+            04 = Gold<br>
+            05 = Novelty items</td>
+        </tr>
+        <tr> 
+          <td valign="top">5</td>
+          <td><b>Equipped location</b><br>
+            01 = One handed (weapons and shields)<br>
+            02 = Two handed (bows, axes, staves, big swords)<br>
+            03 = Body<br>
+            04 = Head<br>
+            05 = Ring<br>
+            06 = Amulet<br>
+            07 = Unequipable</td>
+        </tr>
+        <tr> 
+          <td>6-7</td>
+          <td><b>Always zero</b></td>
+        </tr>
+        <tr> 
+          <td valign="top">8-11</td>
+          <td><b>Graphic Value</b> (uses the original Diablo graphic 
+            set)<br>
+            0 Potion of Full Mana<br>
+            1 White Scroll<br>
+            2 Brown Scroll<br>
+            3 Blue Scroll<br>
+            4 Small Gold Pile<br>
+            5 Medium Gold Pile<br>
+            6 Large Gold Pile<br>
+            7 &quot;Thick Gold Ring&quot;<br>
+            8 The Bleeder<br>
+            9 Bramble<br>
+            0A Ring of Truth<br>
+            0B Ring of Regha<br>
+            0C Ring<br>
+            0D Ring of Engagement<br>
+            0E Constricting Ring<br>
+            0F Spectral Elixir<br>
+            10 &quot;Rainbow Elixir&quot;<br>
+            11 Golden Elixir<br>
+            12 Empyrean Band<br>
+            13 Ear w/ steel earring<br>
+            14 Ear<br>
+            15 Ear w/ gold earring<br>
+            16 &quot;orange sphere&quot;<br>
+            17 &quot;Hellraiser Box&quot;<br>
+            18 &quot;gold pyramid&quot;<br>
+            19 Blood Stone<br>
+            1A &quot;red sphere&quot;<br>
+            1B &quot;blue cube&quot;<br>
+            1C &quot;orange pyramid&quot;<br>
+            1D &quot;thin black vial&quot;<br>
+            1E &quot;large black vial&quot;<br>
+            1F Elixir of Vitality<br>
+            20 Potion of Healing<br>
+            21 Potion of Full Rejuvenation<br>
+            22 Elixir of Magic<br>
+            23 Potion of Full Healing<br>
+            24 Elixir of Dexterity<br>
+            25 Potion of Rejuvenation<br>
+            26 Elixir of Strength<br>
+            27 Potion of Mana, Potion of Mana<br>
+            28 Brain<br>
+            29 &quot;Claw&quot;<br>
+            2A &quot;Tooth&quot;<br>
+            2B &quot;loaf of bread&quot;<br>
+            2C Optic Amulet<br>
+            2D Amulet<br>
+            2E &quot;black pendant&quot;<br>
+            2F &quot;bug brooch&quot;<br>
+            30 &quot;ankh necklace&quot;<br>
+            31 &quot;pouch&quot;<br>
+            32 Wizardspike<br>
+            33 Dagger<br>
+            34 &quot;bottle of brew&quot;<br>
+            35 Black Razor<br>
+            36 &quot;thick dagger&quot;<br>
+            37 &quot;knuckle knife&quot;<br>
+            38 Blade<br>
+            39 Bastard Sword<br>
+            3A The Executioner's Blade<br>
+            3B Mace<br>
+            3C Long Sword<br>
+            3D Broad Sword<br>
+            3E Falchion<br>
+            3F Morning Star<br>
+            40 Short Sword<br>
+            41 Claymore<br>
+            42 Club<br>
+            43 Sabre<br>
+            44 Gryphons Claw, The Falcon's Talon<br>
+            45 &quot;bone club&quot;<br>
+            46 Spiked Club<br>
+            47 &quot;board w/ nail&quot;<br>
+            48 Scimitar<br>
+            49 &quot;angel sword&quot;<br>
+            4A &quot;rusted, grey sword&quot;<br>
+            4B Full Helm<br>
+            4C Magic Rock<br>
+            4D Helm of Sprits<br>
+            4E &quot;skull crown&quot;<br>
+            4F Royal Circlet<br>
+            50 Fool's Crest<br>
+            51 Harlequin Crest<br>
+            52 Helm<br>
+            53 Buckler<br>
+            54 &quot;horned helm&quot;<br>
+            55 Veil of Steel, Gotterdamerung<br>
+            56 &quot;black book&quot;<br>
+            57 &quot;red book&quot;<br>
+            58 &quot;blue book&quot;<br>
+            59 Black Mushroom<br>
+            5A Skull Cap<br>
+            5B Cap<br>
+            5C Torn Flesh of Souls<br>
+            5D Thinking Cap<br>
+            5E &quot;red tunic&quot;<br>
+            5F Crown<br>
+            60 Map of the Stars<br>
+            61 Fungal Tome<br>
+            62 Great Helm<br>
+            63 OverLord's Helm<br>
+            64 &quot;lightning shield&quot;<br>
+            65 Battle Axe<br>
+            66 Hunter's Bow, Long Bow<br>
+            67 Plate Mail, Field Plate<br>
+            68 Stonecleaver<br>
+            69 Small Shield<br>
+            6A Cleaver<br>
+            6B Studded Leather Armor<br>
+            6C Deadly Hunter, Eaglehorn<br>
+            6D Short Staff, Quarter Staff<br>
+            6E Two-Handed Sword<br>
+            6F Chain Mail<br>
+            70 Small Axe<br>
+            71 Kite Shield<br>
+            72 Scale Mail<br>
+            73 &quot;large, thick shield&quot;<br>
+            74 Split Skull Shield<br>
+            75 Dragon's Breach<br>
+            76 Short Bow, Short Bow<br>
+            77 Long Battle Bow, Long War Bow<br>
+            78 &quot;fish bow&quot;<br>
+            79 War Hammer<br>
+            7A Maul, The Cranium Basher<br>
+            7B Long Staff<br>
+            7C War Staff<br>
+            7D &quot;shaman's staff&quot;<br>
+            7E Tavern Sign<br>
+            7F Hard Leather Armor<br>
+            80 Rags<br>
+            81 Quilted Armor<br>
+            82 &quot;3 spiked balls 'n chain flail&quot;<br>
+            83 Flail<br>
+            84 Tower Shield<br>
+            85 Composite Bow<br>
+            86 Great Sword<br>
+            87 Leather Armor<br>
+            88 Splint Mail<br>
+            89 Robe<br>
+            8A The Rainbow Cloak, Wisdom's Wrap, Nightscape<br>
+            8B &quot;leather shirt&quot;<br>
+            8C Anvil of Fury<br>
+            8D Broad Axe<br>
+            8E Large Axe<br>
+            8F Great Axe<br>
+            90 Axe<br>
+            91 &quot;grey cleaver&quot;<br>
+            92 Blackoak Shield, Holy Defender<br>
+            93 Large Shield<br>
+            94 Gothic Shield<br>
+            95 Cloak<br>
+            96 Cape<br>
+            97 Full Plate Mail<br>
+            98 Gothic Plate<br>
+            99 Breast Plate<br>
+            9A Ring Mail<br>
+            9B Staff of Lazarus<br>
+            9C &quot;ruby axe&quot;<br>
+            9D Arkaine's Valor<br>
+            9E The Needler<br>
+            9F Naj's Light Plate<br>
+            A0 The Grizzly<br>
+            A1 The Grandfather<br>
+            A2 The Protector<br>
+            A3 Messerschmidt's Reaver<br>
+            A4 Windforce<br>
+            A5 Short War Bow<br>
+            A6 Composite Staff<br>
+            A7 Short Battle Bow<br>
+            A8 Gold<br> <b>Hellfire</b><br>
+            A8 Xorine's Ring<br>
+            A9 Ring<br>
+            AA Amulet of Warding<br>
+            AB Amulet<br>
+            AC Amulet<br>
+            AD Karik's Ring<br>
+            AE Ring<br>
+            AF Amulet<br>
+            B0 Mercurial Ring<br>
+            B1 Ring of Thunder<br>
+            B2 Amulet<br>
+            B3 Giant's Knuckle<br>
+            B4 Auric Amulet<br>
+            B5 Ring of the Mystics<br>
+            B6 Ring<br>
+            B7 Acolyte's Amulet<br>
+            B8 Ring of Magma<br>
+            B9 Amulet<br>
+            BA Gladiator's Ring<br>
+            BB Rune Bomb<br>
+            BC Theodore<br>
+            BD Thorn Note 1<br>
+            BE Thorn Note 2<br>
+            BF Thorn Note 3<br>
+            C0 Reconstructed Note<br>
+            C1 Rune of Fire<br>
+            C2 Greater Rune of Fire<br>
+            C3 Rune of Lightning<br>
+            C4 Greater Rune of Lightning<br>
+            C5 Rune of Stone<br>
+            C6 Grey Suit<br>
+            C7 Brown Suit<br>
+            C8 Eater of Souls<br>
+            C9 Sword<br>
+            CA &quot;Jagged Sword&quot;<br>
+            CB Armor of Gloom<br>
+            CC Bone Chain Armor<br>
+            CD Thunderclap<br>
+            CE Diamondedge<br>
+            CF &quot;Jesters Staff&quot;<br>
+            D0 &quot;Blue Orb Staff&quot;<br>
+            D1 Flambeau<br>
+            D2 Gnat Sting<br>
+            D3 &quot;Double Axe&quot;<br>
+            D4 Mace<br>
+            D5 Mace<br>
+            D6 Bone Mace<br>
+            D7 Bone Axe<br>
+            D8 Bone Sword<br>
+            D9 Bone Mace<br>
+            DA Bone Staff<br>
+            DB Blitzen<br>
+            DC Mace<br>
+            DD Sword<br>
+            DE Axe<br>
+            DF Mace<br>
+            F0 Mace<br>
+            F1 Demon Plate Armor<br>
+            F2 Bovine Plate</td>
+        </tr>
+        <tr> 
+          <td valign="top">12</td>
+          <td><b>Item Code</b><br>
+            00 = All other items (novelties, potions, scrolls, books, etc)<br>
+            01 = Swords<br>
+            02 = Axes, Cleaver<br>
+            03 = Bows<br>
+            04 = Blunt weapons (maces, hammers, mauls, clubs)<br>
+            05 = Shields<br>
+            06 = Light armor (rags, capes, leather armor, etc)<br>
+            07 = Helms, crowns<br>
+            08 = Mid armor (Arkaine's Valor, chain mail, splint mail, etc)<br>
+            09 = Heavy plates (Full Plate Mail, Gothic Plate, Breast Plate, etc)<br>
+            0A = Staves<br>
+            0B = Gold<br>
+            0C = Rings<br>
+            0D = Amulets</td>
+        </tr>
+        <tr> 
+          <td valign="top">13</td>
+          <td><b>Unique Item code<br>
+            </b>See the unique item data for the matching values (Ex. Cleaver 
+            = 11...The Butcher's Cleaver = 11</td>
+        </tr>
+        <tr> 
+          <td>14-15</td>
+          <td><b>Always zero</b></td>
+        </tr>
+        <tr> 
+          <td>16-19</td>
+          <td><b>Pointer to Name</b></td>
+        </tr>
+        <tr> 
+          <td>20-23</td>
+          <td><b>Pointer to second name</b> (used by magical items)</td>
+        </tr>
+        <tr> 
+          <td>24-27</td>
+          <td><b>Quality Level</b></td>
+        </tr>
+        <tr> 
+          <td>28-31</td>
+          <td><b>Durability</b></td>
+        </tr>
+        <tr> 
+          <td>32-35</td>
+          <td><b>Minimum attack damage</b></td>
+        </tr>
+        <tr> 
+          <td>36-39</td>
+          <td><b>Maximum Attack Damage</b></td>
+        </tr>
+        <tr> 
+          <td>40-43</td>
+          <td><b>Minimum Armor Class</b></td>
+        </tr>
+        <tr> 
+          <td>44-47</td>
+          <td><b>Maximum Armor Class</b></td>
+        </tr>
+        <tr> 
+          <td>48</td>
+          <td><b>Required strength to use</b></td>
+        </tr>
+        <tr> 
+          <td>49</td>
+          <td><b>Required magic to use</b></td>
+        </tr>
+        <tr> 
+          <td>50</td>
+          <td><b>Required dexterity to use</b></td>
+        </tr>
+        <tr> 
+          <td>51</td>
+          <td><b>Required vitality to use</b></td>
+        </tr>
+        <tr> 
+          <td valign="top">52-55</td>
+          <td><b>Special Effects (Diablo)<br>
+            Some effects do not work on certain base items<br>
+            </b>0100 0000 = Infravision<br>
+            0200 0000 = Random Life Stealing<br>
+            0400 0000 = Random Speed Arrows<br>
+            0800 0000 = Burning Damage<br>
+            1000 0000 = Extra Fire Damage<br>
+            2000 0000 = Extra Lighning Damage<br>
+            4000 0000 = Cursed Hit Points<br>
+            8000 0000 = ???<br>
+            0001 0000 = ???<br>
+            0002 0000 = ???<br>
+            0004 0000 = ???<br>
+            0008 0000 = Knock target back<br>
+            0010 0000 = ???<br>
+            0020 0000 = Steal 3% Mana<br>
+            0040 0000 = Steal 5% Mana<br>
+            0080 0000 = Steal 3% Life<br>
+            0000 0100 = Steal 5% life<br>
+            0000 0200 = Quick Attack<br>
+            0000 0400 = Fast Attack<br>
+            0000 0800 = Faster Attack<br>
+            0000 1000 = Fastest Attack<br>
+            0000 2000 = Fast Hit Recovery<br>
+            0000 4000 = Faster Hit Recovery<br>
+            0000 8000 = Fastest Hit Recovery<br>
+            0000 0001 = Fast Block<br>
+            0000 0002 = 1-6 additional lightning damage<br>
+            0000 0004 = Attacker takes 1-3 thorn damage<br>
+            0000 0008 = Cursed Mana<br>
+            0000 0010 = Absorb Half Trap Damage<br>
+            0000 0020 = ???<br>
+            0000 0040 = +200% Damage to Demons<br>
+            0000 0080 = Cursed Resistance</td>
+        </tr>
+        <tr> 
+          <td valign="top">56-59</td>
+          <td><b>Magic code</b><br>
+            00 = Nothing<br>
+            02 = Potion of Full Healing<br>
+            03 = Potion of Healing<br>
+            06 = Potion of Mana<br>
+            07 = Potion of Full Mana<br>
+            0A = Elixir of Strength<br>
+            0B = Elixir of Magic<br>
+            0C = Elixir of Dexterity<br>
+            0D = Elixir of Vitality<br>
+            12 = Potion of Rejuvenation<br>
+            13 = Potion of Full Rejuventaion<br>
+            15 = Scroll of Healing, Identify, Town Portal, Infravision, Phasing, 
+            Mana<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shield, 
+            Nova, Teleport, Apocalypse<br>
+            16 = Scroll of Resurrect, Lightning, FireWall, Inferno, Flash, Flame 
+            Wave,<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fireball, 
+            Stone Curse, Chain Lightning, Guardian, Golem<br>
+            17 = Staves<br>
+            18 = Books<br>
+            19 = Rings<br>
+            1A = Amulets<br>
+            1B = Unique items<br>
+            2A = Map of the Stars<br>
+            2B = Ear/Heart<br>
+            2C = Spectral Elixir<br> <b>Hellfire</b><br>
+            1E = Oil of ...(The 10 possible oils are located at A4028 and beyond)<br>
+            1F = Oil of Accuracy (also as a seperate oil)<br>
+            20 = Oil of Mastery<br>
+            21 = Oil of Sharpness (also as a seperate oil)<br>
+            22 = Oil of death<br>
+            23 = Oil of Skill<br>
+            24 = Blacksmith Oil (also as a seperate oil)<br>
+            25 = Oil of Fortitude<br>
+            26 = Oil of Permanence<br>
+            27 = Oil of Hardening<br>
+            28 = Oil of Imperviousness<br>
+            2A = Cathedral Map<br>
+            2F = Rune of Fire<br>
+            30 = Rune of Lightning<br>
+            31 = Greater Rune of Lightning<br>
+            32 = Greater Rune of Fire<br>
+            35 = Auric Amulet<br>
+            36 = Reconstructed Note<br> <b>If you use a value not listed 
+            here and it does something pretty cool, please tell me about it so 
+            I can add it to this section!</b></td>
+        </tr>
+        <tr> 
+          <td valign="top">60-63</td>
+          <td><b>Spell number</b><br>
+            01 = Firebolt<br>
+            02 = Healing<br>
+            03 = Lightning<br>
+            04 = Flash<br>
+            05 = Identify<br>
+            06 = FireWall<br>
+            07 = Town Portal<br>
+            08 = Stone Curse<br>
+            09 = Infravision<br>
+            0A = Phasing<br>
+            0B = Mana Shield<br>
+            0C = FireBall<br>
+            0D = Guardian<br>
+            0E = Chain Lightning<br>
+            0F = Flame Wave<br>
+            10 = Doom Serpents<br>
+            11 = Blood Ritual<br>
+            12 = Nova<br>
+            13 = Invisibility<br>
+            14 = Inferno<br>
+            15 = Golem<br>
+            16 = Blood Boil<br>
+            17 = Teleport<br>
+            18 = Apocalypse<br>
+            19 = Etherealize<br>
+            1A = Item Repair<br>
+            1B = Staff recharge<br>
+            1C = Trap Disarm<br>
+            1D = Elemental<br>
+            1E = Charged Bolt<br>
+            1F = Holy Bolt<br>
+            20 = Resurrect<br>
+            21 = Telekinesis<br>
+            22 = Heal Other<br>
+            23 = Blood Star<br>
+            24 = Bone Spirit<br> <b>Hellfire</b><br>
+            16 = Rage<br>
+            25 = Mana<br>
+            26 = The Magi<br>
+            27 = The Jester<br>
+            28 = Lightning Wall<br>
+            29 = Immolation<br>
+            2A = Warp<br>
+            2B = Reflect<br>
+            2C = Berserk<br>
+            2D = Ring Of Fire<br>
+            2E = Search<br>
+            2F = Rune Of Fire<br>
+            30 = Rune Of Light<br>
+            31 = Greater Rune Of Lightning<br>
+            32 = Greater Rune Of Fire<br>
+            33 = Rune Of Stone</td>
+        </tr>
+        <tr> 
+          <td valign="top">64-67</td>
+          <td><b>Use Once Flag</b><br>
+            00 = Nothing<br>
+            01 = Right clicking the item will make it disappear (potions, scrolls, 
+            books)</td>
+        </tr>
+        <tr> 
+          <td>68-71</td>
+          <td><b>Price #1</b></td>
+        </tr>
+        <tr> 
+          <td>72-75</td>
+          <td><b>Price #2</b></td>
+        </tr>
+      </table>
+
+<p><b>Additional data</b></p>
+
+<p>Location of the oils used in oils of ...<br>
+<br>
+A4028 Qlvl of the oils, 10 x 4 bytes<br>
+A4050 Price, 10 x 4 bytes<br>
+A4078 Magic code, 10 x 4 bytes<br>
+A40A0 Names, 10 x 26 bytes
+</p>
+</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font size="2">Click <a href="../index.html">here</a> to go back.</font></td>
+  </tr>
+</table>
+</body>
+</html>
